@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GourmetArt - 智能餐饮海报设计</title>
+    <title>GourmetArt Pro - 顶级餐饮视觉设计</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -18,28 +18,45 @@
                 400: '#d2bab0',
                 500: '#a09a95',
                 600: '#8a837e',
-                800: '#5e5a56',
-                900: '#2c2a28',
+                800: '#2A2A2A', // Darker base
+                900: '#141414', // Almost black
+                950: '#0a0a0a',
               },
               accent: {
-                light: '#FFD700',
-                DEFAULT: '#DAA520',
-                dark: '#B8860B',
+                light: '#FDE047', // Bright Yellow
+                DEFAULT: '#EAB308', // Gold
+                dark: '#A16207', // Bronze
+                glow: '#F59E0B', // Glowing Orange
               }
             },
             fontFamily: {
               sans: ['Inter', 'system-ui', 'sans-serif'],
-              serif: ['Merriweather', 'serif'],
+              serif: ['Playfair Display', 'Merriweather', 'serif'],
             },
             animation: {
-              'fade-in': 'fadeIn 0.5s ease-out',
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'shimmer': 'shimmer 2s linear infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
             },
             keyframes: {
               fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
             }
           },
         },
@@ -47,22 +64,40 @@
     </script>
     <style>
       body {
-        background-color: #1a1a1a;
+        background-color: #050505;
         color: #f3f4f6;
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #2c2a28; 
+        background: #1a1a1a; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #5e5a56; 
-        border-radius: 4px;
+        background: #333; 
+        border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #8a837e; 
+        background: #EAB308; 
+      }
+      
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-input {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      
+      .glass-input:focus {
+        border-color: #EAB308;
+        box-shadow: 0 0 0 1px rgba(234, 179, 8, 0.3);
       }
     </style>
   <script type="importmap">

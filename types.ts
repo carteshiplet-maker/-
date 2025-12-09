@@ -12,18 +12,46 @@ export enum ArtStyle {
   EXPERIMENTAL_TYPOGRAPHY = 'Experimental Typography', // 实验排版
 }
 
+// New Pro Features
+export enum CompositionType {
+  MINIMAL_CENTER = 'Minimalist Center Focus',
+  GOLDEN_RATIO = 'Golden Ratio / Rule of Thirds',
+  ASYMMETRIC_DYNAMIC = 'Asymmetric / Dynamic Diagonal',
+  MAGAZINE_GRID = 'Editorial Grid Layout',
+  FULL_BLEED = 'Immersive Full Bleed',
+}
+
+export enum LightingType {
+  NATURAL_SOFT = 'Natural Window Light (Soft)',
+  CINEMATIC_WARM = 'Cinematic Warm (Golden Hour)',
+  STUDIO_CRISP = 'High-End Studio (Crisp)',
+  MOODY_DARK = 'Moody / Chiaroscuro (Dark)',
+  NEON_CYBER = 'Neon / Artificial (Cyber)',
+}
+
 export interface PosterRequest {
   restaurantName: string;
-  description: string; // Product description or vibe description
-  brandStory: string; // Brand philosophy/intro
-  targetAudience: string; // Customer group
+  description: string;
+  brandStory: string;
+  targetAudience: string;
   style: ArtStyle;
-  images?: string[]; // Global: Can be reference images (Vibe) or subject images (Dish)
+  images?: string[];
   mode: PosterMode;
+  // New Pro Fields
+  composition: CompositionType;
+  lighting: LightingType;
+  creativityLevel: number; // 0 to 100
 }
 
 export interface GeneratedPoster {
   imageUrl: string;
   promptUsed: string;
   timestamp: number;
+}
+
+export interface BrandAnalysisResult {
+  restaurantName: string;
+  brandStory: string;
+  targetAudience: string;
+  visualStyle: string;
 }
